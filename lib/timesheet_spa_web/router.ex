@@ -17,6 +17,9 @@ defmodule TimesheetSpaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    # Wildcard path must come *last*, including after
+    # other scopes.
+    get "/*path", PageController, :index
   end
 
   # Other scopes may use custom stacks.
