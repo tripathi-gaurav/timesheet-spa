@@ -15,12 +15,17 @@ function Page(props) {
                     <Nav.Item>
                         <NavLink to="/" exact activeClassName="active" className="nav-link">
                             Home
-            </NavLink>
+                        </NavLink>
                     </Nav.Item>
                     <Nav.Item>
                         <NavLink to="/users" exact activeClassName="active" className="nav-link">
                             Users
-            </NavLink>
+                        </NavLink>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <NavLink to="/tasks" exact activeClassName="active" className="nav-link">
+                            Tasks
+                        </NavLink>
                     </Nav.Item>
                 </Nav>
             </Navbar>
