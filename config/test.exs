@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :timesheet_spa, TimesheetSpa.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "timesheet_spa",
+  password: "angee4nooGh8",
   database: "timesheet_spa_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
