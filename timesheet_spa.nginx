@@ -1,12 +1,12 @@
 upstream timesheet_app {
-    server localhost:5001;
+    server localhost:5002;
 }
 
 server {
     listen 80;
     listen [::]:80;
 
-    server_name timesheet.webassembly.site;
+    server_name time2.webassembly.site;
 
     location / {
         proxy_pass http://timesheet_app;

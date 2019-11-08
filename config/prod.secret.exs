@@ -36,3 +36,4 @@ config :timesheet_spa, TimesheetSpaWeb.Endpoint,
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.
+config :timesheet_spa, TimesheetSpaWeb.Endpoint, server: true

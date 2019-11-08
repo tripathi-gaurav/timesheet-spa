@@ -1,17 +1,17 @@
 
 [Unit]
-Description=Timesheet app
+Description=Timesheet app in SPA
 
 [Service]
 Type=simple
-User=pippin
-Group=pippin
+User=boromir
+Group=boromir
 Restart=on-failure
-Environment=MIX_ENV=prod "PORT=5001"
+Environment=MIX_ENV=prod "PORT=5002"
 Environment=LANG=en_US.UTF-8
 
-WorkingDirectory=/home/pippin/timesheet
-ExecStart=/bin/bash /home/pippin/timesheet/start.sh
+WorkingDirectory=/home/boromir/timesheet-spa
+ExecStart=/bin/bash /home/boromir/timesheet-spa/start.sh
 
 [Install]
 WantedBy=multi-user.target
