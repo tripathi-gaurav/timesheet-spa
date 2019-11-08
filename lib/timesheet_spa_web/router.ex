@@ -16,12 +16,12 @@ defmodule TimesheetSpaWeb.Router do
   pipeline :ajax do
     plug :accepts, ["json"]
     plug :fetch_session
-    plug LensWeb.Plugs.FetchCurrentUser
+    plug TimesheetSpa.Plugs.FetchCurrentUser
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
-  scope "/ajax", LensWeb do
+  scope "/ajax", TimesheetSpa do
     pipe_through :ajax
 
     resources "/roles", RoleController, except: [:new, :edit]
