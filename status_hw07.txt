@@ -1,0 +1,38 @@
+
+Web Dev Fall 2019 HW07 Status
+
+Answer the following questions:
+
+
+1. What's your name?
+Gaurav Tripathi
+
+
+2. What's the URL of the github repo with your work for this HW?
+https://github.com/tripathi-gaurav/timesheet-spa/
+
+3. What's the version number of your github release?
+9d63c947ac17660c0a93160b7db0a6d5b0d9cda4
+
+
+
+4. What's the URL that you deployed to?
+http://time2.webassembly.site/
+
+
+
+5. Is your app functionality complete? If not, what's missing?
+No.
+Only login and database design is implemented.
+
+
+6. Is your app properly deployed? If not, what went wrong?
+Yes
+
+
+
+
+And here's a list of tasks for grading comments. Just leave this here:
+ - Development
+ - Deployment
+ - Submission
