@@ -101,4 +101,14 @@ defmodule TimesheetSpa.Users do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
+
+  def authenticate_user(email, password) do
+    user = Repo.get_by(User, email: email)
+    case Argon2.check_pass(user, password) do
+      {:ok, user} -> {:ok, user}
+      {:error, _whatever} -> {:error, nil}
+      {_else}       -> {:error, nil}
+    end
+  end
+
 end

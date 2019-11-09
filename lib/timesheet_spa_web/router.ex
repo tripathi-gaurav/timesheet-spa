@@ -16,12 +16,12 @@ defmodule TimesheetSpaWeb.Router do
   pipeline :ajax do
     plug :accepts, ["json"]
     plug :fetch_session
-    plug TimesheetSpa.Plugs.FetchCurrentUser
+    #plug TimesheetSpa.Plugs.FetchCurrentUser
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
-  scope "/ajax", TimesheetSpa do
+  scope "/ajax", TimesheetSpaWeb do
     pipe_through :ajax
 
     resources "/roles", RoleController, except: [:new, :edit]
@@ -30,6 +30,7 @@ defmodule TimesheetSpaWeb.Router do
     resources "/contracts", ContractController, except: [:new, :edit]
     resources "/sheets", SheetController, except: [:new, :edit]
     resources "/tasks", TaskController, except: [:new, :edit]
+    resources "/sessions", SessionController, only: [:create], singleton: true
 
   end
   
@@ -39,6 +40,8 @@ defmodule TimesheetSpaWeb.Router do
     get "/", PageController, :index
     # Wildcard path must come *last*, including after
     # other scopes.
+    resources "/users", UserController
+    resources "/sessions", SessionController, only: [:new, :create, :delete], singleton: true
     get "/*path", PageController, :index
   end
 

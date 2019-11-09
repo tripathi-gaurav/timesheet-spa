@@ -6,7 +6,9 @@ defmodule TimesheetSpa.Users.User do
     field :email, :string
     field :name, :string
     field :role, :id
-
+    field :password_hash, :string
+    field :password, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
     timestamps()
   end
 
@@ -14,6 +16,19 @@ defmodule TimesheetSpa.Users.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:email, :name])
-    |> validate_required([:email, :name])
+    |> validate_required([:email, :name, :password, :password_confirmation])
+    |> validate_confirmation(:password)
+    |> hash_password()
+    |> validate_required([:email, :name, :password_hash])
   end
+
+  def hash_password(cset) do
+    pw = get_change(cset, :password)
+    if pw do
+      change(cset, Argon2.add_hash(pw))
+    else
+      cset
+    end
+  end
+  
 end

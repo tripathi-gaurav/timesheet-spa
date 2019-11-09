@@ -32,8 +32,12 @@ employee = Repo.get_by(Role, role_id: 1)
 manager = Repo.get_by(Role, role_id: 2)
 
 IO.puts "Inserting users"
-Repo.insert!(%User{name: "Naezy", email: "naezy@gullygang.com", role: employee.id} )
-Repo.insert!(%User{name: "Divine", email: "divine@gullygang.com", role: manager.id} )
+
+pw = "qwerty123"
+m = Argon2.add_hash(pw)
+pw = m.password_hash
+Repo.insert!(%User{name: "Naezy", email: "naezy@gullygang.com", role: employee.id, password_hash: pw } )
+Repo.insert!(%User{name: "Divine", email: "divine@gullygang.com", role: manager.id, password_hash: pw } )
 IO.puts "Inserted"
 
 IO.puts "inserting jobs"
